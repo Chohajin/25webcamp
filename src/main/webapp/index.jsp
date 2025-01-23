@@ -169,7 +169,7 @@
             <img src="thumbnail1.jpg" alt="Thumbnail">
             <div>
                 <h4>추천 동영상 1</h4>
-                <span>조회수 100만회 • 1년 전</span>
+                <span>조회수 10만회 • 1년 전</span>
             </div>
         </div>
         <div class="suggestion">
