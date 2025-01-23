@@ -145,6 +145,9 @@
     <div class="user-options">
         <button>🔔</button>
         <button>💼</button>
+        <div>
+        <i class="fa-solid fa-circle-user"></i>
+        </div>
     </div>
 </header>
 <div class="container">
