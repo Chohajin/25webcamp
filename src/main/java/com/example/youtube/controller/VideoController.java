@@ -14,11 +14,6 @@ public class VideoController {
     @Autowired
     private VideoService videoService;
 
-    @GetMapping("/")
-    public String redirectToVideos() {
-        return "redirect:/videos";
-    }
-
     @GetMapping
     public String listVideos(Model model) {
         model.addAttribute("videos", videoService.getAllVideos());
@@ -39,7 +34,8 @@ public class VideoController {
 
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable int id, Model model) {
-        Video video = videoService.getVideoById(id);
+        Video video = videoService.getVideoById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid video ID: " + id));
         model.addAttribute("video", video);
         return "editVideo";
     }
