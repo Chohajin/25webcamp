@@ -93,16 +93,18 @@
     <h1>Edit Video</h1>
     <form action="/videos/edit" method="post">
         <input type="hidden" name="id" value="${video.id}" />
-
         <label for="title">Title:</label>
-        <input type="text" name="title" id="title" value="${video.title}" required />
-
+        <input type="text" id="title" name="title" value="${video.title}" required />
+        <br>
+        <label for="url">URL:</label>
+        <input type="text" id="url" name="url" value="${video.url}" required />
+        <br>
         <label for="description">Description:</label>
-        <textarea name="description" id="description" rows="5" required>${video.description}</textarea>
-
+        <textarea id="description" name="description" required>${video.description}</textarea>
+        <br>
         <button type="submit">Update Video</button>
     </form>
-    <a href="/videos">Back to list</a>
+    <a href="/videos">Back to List</a>
 </div>
 </body>
 </html>

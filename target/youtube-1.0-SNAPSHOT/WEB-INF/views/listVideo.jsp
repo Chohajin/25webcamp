@@ -101,7 +101,7 @@
 <div class="container">
     <h1>Video List</h1>
     <div class="add-video">
-        <a href="videos/add">Add Video</a>
+        <a href="videos/add" class="upload-button">영상 업로드</a>
     </div>
     <table>
         <thead>

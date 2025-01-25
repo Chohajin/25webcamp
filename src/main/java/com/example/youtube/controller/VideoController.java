@@ -10,20 +10,19 @@ import org.springframework.web.bind.annotation.*;
 @Controller
 @RequestMapping("/videos")
 public class VideoController {
-
     @Autowired
     private VideoService videoService;
 
     @GetMapping
     public String listVideos(Model model) {
         model.addAttribute("videos", videoService.getAllVideos());
-        return "listVideos";
+        return "listVideo";
     }
 
     @GetMapping("/add")
     public String showAddForm(Model model) {
         model.addAttribute("video", new Video());
-        return "addVideo";
+        return "addVideo"; // /WEB-INF/views/addVideo.jsp
     }
 
     @PostMapping("/add")
@@ -34,8 +33,7 @@ public class VideoController {
 
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable int id, Model model) {
-        Video video = videoService.getVideoById(id)
-                .orElseThrow(() -> new IllegalArgumentException("Invalid video ID: " + id));
+        Video video = videoService.getVideoById(id);
         model.addAttribute("video", video);
         return "editVideo";
     }

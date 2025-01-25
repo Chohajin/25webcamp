@@ -95,11 +95,15 @@
         <label for="title">영상 제목:</label>
         <input type="text" name="title" id="title" placeholder="제목을 입력해주세요" required />
 
+        <label for="url">영상 URL:</label>
+        <input type="text" name="url" id="url" placeholder="URL을 입력해주세요" required />
+
         <label for="description">영상 설명:</label>
         <textarea name="description" id="description" placeholder="설명을 입력해주세요" rows="5" required></textarea>
 
         <button type="submit">영상 업로드하기</button>
     </form>
-    <a href="<%= request.getContextPath() %>/videos">목록으로 돌아가기</a></div>
+    <a href="<%= request.getContextPath() %>/videos">목록으로 돌아가기</a>
+</div>
 </body>
 </html>
