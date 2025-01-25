@@ -1,4 +1,3 @@
-com/example/youtube/controller/LoginController.class
 com/example/youtube/controller/VideoController.class
 com/example/youtube/HelloServlet.class
 com/example/youtube/service/VideoService.class

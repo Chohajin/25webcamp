@@ -1,11 +1,4 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
-<%
-    session = request.getSession(false);
-    if (session == null || session.getAttribute("username") == null) {
-        response.sendRedirect(request.getContextPath() + "/login");
-        return;
-    }
-%>
 <!DOCTYPE html>
 <html lang="ko">
 <head>
@@ -103,10 +96,6 @@
 <header>
     <div class="logo">
         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png" alt="YouTube Logo">
-    </div>
-    <div>
-        Logged in as: <%= session.getAttribute("user") %>
-        <a href="<%= request.getContextPath() %>/logout">Logout</a>
     </div>
 </header>
 <div class="container">
