@@ -18,10 +18,11 @@ public class VideoController {
 
     @GetMapping
     public String listVideos(Model model) {
-        List<Video> videos = videoService.getAllVideos();
+        List<Video> videos = videoService.getAllVideos(); // MockAPI 또는 DB에서 모든 데이터 로드
         model.addAttribute("videos", videos);
         return "listVideo"; // listVideo.jsp로 이동
     }
+
 
     @GetMapping("/add")
     public String showAddForm(Model model) {
@@ -49,8 +50,11 @@ public class VideoController {
 
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable int id, Model model) {
-        Video video = videoService.getVideoById(id);
-        model.addAttribute("video", video);
+        Video video = videoService.getVideoById(id); // ID로 특정 비디오 로드
+        if (video == null) {
+            throw new RuntimeException("Video not found with ID: " + id);
+        }
+        model.addAttribute("video", video); // 해당 비디오 데이터 전달
         return "editVideo"; // editVideo.jsp로 이동
     }
 
