@@ -132,8 +132,8 @@
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
-                <version>3.3.0</version>
+                <artifactId>maven-war-plugin</artifactId>
+                <version>3.3.2</version> <!-- 최신 버전 -->
                 <configuration>
                     <archive>
                         <manifest>
