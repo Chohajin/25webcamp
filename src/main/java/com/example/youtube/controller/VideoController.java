@@ -32,9 +32,11 @@ public class VideoController {
     @PostMapping("/add")
     public String addVideo(@ModelAttribute Video video) {
         try {
-            // MockAPI에서 URL 생성 및 설정
-            String generatedUrl = videoService.generateMockUrl();
-            video.setUrl(generatedUrl);
+            // 사용자가 URL을 입력하지 않은 경우 MockAPI에서 URL 가져오기
+            if (video.getUrl() == null || video.getUrl().isEmpty()) {
+                String generatedUrl = videoService.generateMockUrl();
+                video.setUrl(generatedUrl);
+            }
 
             // 비디오 추가
             videoService.addVideo(video);

@@ -38,13 +38,13 @@ public class VideoService {
         try {
             Video[] response = restTemplate.getForObject(apiUrl, Video[].class);
             if (response != null && response.length > 0) {
-                // MockAPI에서 첫 번째 항목의 URL을 반환
+                // MockAPI에서 첫 번째 항목의 URL 반환
                 return response[0].getUrl();
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        // 기본 URL 반환 (MockAPI 실패 시)
-        return "https://example.com/default-video-url";
+        // MockAPI에서 데이터를 가져올 수 없는 경우 기본 URL 반환
+        return "https://example.com/default-url";
     }
 }
