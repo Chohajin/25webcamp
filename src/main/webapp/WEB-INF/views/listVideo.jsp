@@ -5,7 +5,6 @@
 %>
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <title>Youtube</title>
     <meta charset="UTF-8">
@@ -54,12 +53,14 @@
         table {
             width: 100%;
             border-collapse: collapse;
+            table-layout: fixed; /* 고정된 너비 레이아웃 */
         }
 
         th, td {
             padding: 10px;
             text-align: left;
             border-bottom: 1px solid #ddd;
+            word-wrap: break-word; /* 긴 텍스트 자동 줄바꿈 */
         }
 
         th {
@@ -70,17 +71,47 @@
             background-color: #f9f9f9;
         }
 
+        /* 열 너비 조정 */
+        th:nth-child(1), td:nth-child(1) {
+            width: 5%; /* ID 칸 */
+        }
+
+        th:nth-child(2), td:nth-child(2) {
+            width: 20%; /* Title 칸 */
+        }
+
+        th:nth-child(3), td:nth-child(3) {
+            width: 25%; /* Description 칸 */
+        }
+
+        th:nth-child(4), td:nth-child(4) {
+            width: 20%; /* URL 칸 */
+        }
+
+        th:nth-child(5), td:nth-child(5) {
+            width: 10%; /* User 칸 */
+        }
+
+        th:nth-child(6), td:nth-child(6) {
+            width: 10%; /* Date 칸 */
+        }
+
+        th:nth-child(7), td:nth-child(7) {
+            width: 10%; /* Actions 칸 */
+        }
+
         td a {
             text-decoration: none;
             padding: 5px 10px;
             border-radius: 4px;
             font-size: 14px;
+            margin-right: 5px; /* 버튼 간격 추가 */
+            display: inline-block; /* 버튼을 한 줄에 나란히 정렬 */
         }
 
         td a.edit {
             background-color: #73c187; /* Edit 버튼 색상 */
             color: #ffffff;
-
         }
 
         td a.edit:hover {
@@ -99,7 +130,7 @@
 </head>
 <body>
 <div class="container">
-    <h1>다시보고싶은 영상 목록</h1>
+    <h1>다시 보고 싶은 영상 목록</h1>
     <div class="add-video">
         <a href="${pageContext.request.contextPath}/videos/add">영상 업로드</a>
     </div>
