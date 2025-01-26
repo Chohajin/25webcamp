@@ -7,6 +7,9 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import org.springframework.ui.Model;
+
 @Controller
 @RequestMapping("/videos")
 public class VideoController {
@@ -15,7 +18,8 @@ public class VideoController {
 
     @GetMapping
     public String listVideos(Model model) {
-        model.addAttribute("videos", videoService.getAllVideos());
+        List<Video> videos = videoService.getAllVideos();
+        model.addAttribute("videos", videos);
         return "listVideo"; // listVideo.jsp로 이동
     }
 
@@ -27,12 +31,18 @@ public class VideoController {
 
     @PostMapping("/add")
     public String addVideo(@ModelAttribute Video video) {
-        // MockAPI에서 URL 가져오기
-        String generatedUrl = videoService.generateMockUrl();
-        video.setUrl(generatedUrl);
+        try {
+            // MockAPI에서 URL 생성 및 설정
+            String generatedUrl = videoService.generateMockUrl();
+            video.setUrl(generatedUrl);
 
-        videoService.addVideo(video);
-        return "redirect:/videos"; // 리스트 페이지로 리다이렉트
+            // 비디오 추가
+            videoService.addVideo(video);
+            return "redirect:/videos";
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new RuntimeException("Error adding video: " + e.getMessage());
+        }
     }
 
     @GetMapping("/edit/{id}")

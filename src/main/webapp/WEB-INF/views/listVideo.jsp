@@ -110,6 +110,8 @@
             <th>Title</th>
             <th>Description</th>
             <th>URL</th>
+            <th>User</th>
+            <th>Date</th>
             <th>Actions</th>
         </tr>
         </thead>
@@ -120,6 +122,8 @@
                 <td>${video.title}</td>
                 <td>${video.description}</td>
                 <td><a href="${video.url}" target="_blank">${video.url}</a></td>
+                <td>${video.user}</td>
+                <td>${video.date}</td>
                 <td>
                     <a href="videos/edit/${video.id}">Edit</a>
                     <a href="videos/delete/${video.id}">Delete</a>

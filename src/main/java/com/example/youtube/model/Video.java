@@ -5,8 +5,8 @@ public class Video {
     private String title;
     private String url;
     private String description;
-    private String user;  // 사용자명
-    private String date;  // 날짜
+    private String user;
+    private String date;
 
     public Video() {}
 
