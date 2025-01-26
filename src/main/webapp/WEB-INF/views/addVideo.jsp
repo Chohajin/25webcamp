@@ -1,8 +1,8 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
-<html>
+<html lang="ko">
 <head>
-    <title>Youtube</title>
+    <title>영상 추가</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,21 +11,8 @@
             background-color: #f9f9f9;
         }
 
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            background-color: #ffffff;
-            border-bottom: 1px solid #ddd;
-        }
-
-        .logo img {
-            width: 80px;
-        }
-
         .form-container {
-            max-width: 800px;
+            max-width: 600px;
             margin: 50px auto;
             padding: 20px;
             background-color: #ffffff;
@@ -34,37 +21,32 @@
         }
 
         h1 {
-            font-size: 24px;
-            margin-bottom: 20px;
-            color: #333;
+            text-align: center;
         }
 
         label {
             display: block;
             margin: 10px 0 5px;
-            font-weight: bold;
-            color: #555;
         }
 
         input[type="text"],
         textarea {
-            width: 98%;
+            width: 100%;
             padding: 10px;
+            margin-bottom: 20px;
             border: 1px solid #ddd;
             border-radius: 4px;
-            font-size: 16px;
-            margin-bottom: 20px;
         }
 
         button {
-            display: inline-block;
             background-color: #ff0000;
-            color: #ffffff;
+            color: white;
             padding: 10px 20px;
             border: none;
             border-radius: 4px;
-            font-size: 16px;
             cursor: pointer;
+            display: block;
+            margin: 0 auto;
         }
 
         button:hover {
@@ -72,38 +54,27 @@
         }
 
         a {
-            text-decoration: none;
-            color: #555;
+            display: block;
+            text-align: center;
             margin-top: 20px;
-            display: inline-block;
-        }
-
-        a:hover {
-            text-decoration: underline;
+            text-decoration: none;
+            color: #007BFF;
         }
     </style>
 </head>
 <body>
-<header>
-    <div class="logo">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b8/YouTube_Logo_2017.svg/2560px-YouTube_Logo_2017.svg.png" alt="YouTube Logo">
-    </div>
-</header>
 <div class="form-container">
-    <h1>영상 업로드</h1>
+    <h1>영상 추가</h1>
     <form action="add" method="post">
-        <label for="title">영상 제목:</label>
-        <input type="text" name="title" id="title" placeholder="제목을 입력해주세요" required />
+        <label for="title">제목</label>
+        <input type="text" id="title" name="title" placeholder="영상 제목 입력" required />
 
-        <label for="url">영상 URL:</label>
-        <input type="text" name="url" id="url" placeholder="URL을 입력해주세요" required />
+        <label for="description">설명</label>
+        <textarea id="description" name="description" placeholder="영상 설명 입력" required></textarea>
 
-        <label for="description">영상 설명:</label>
-        <textarea name="description" id="description" placeholder="설명을 입력해주세요" rows="5" required></textarea>
-
-        <button type="submit">영상 업로드하기</button>
+        <button type="submit">추가하기</button>
     </form>
-    <a href="<%= request.getContextPath() %>/videos">목록으로 돌아가기</a>
+    <a href="videos">목록으로 돌아가기</a>
 </div>
 </body>
 </html>
