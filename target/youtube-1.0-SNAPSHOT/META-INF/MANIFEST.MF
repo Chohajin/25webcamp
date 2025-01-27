@@ -1,0 +1,9 @@
+Manifest-Version: 1.0
+Created-By: IntelliJ IDEA
+Built-By: jjeany
+Build-Jdk: Amazon Corretto 11.0.26 - aarch64
+Implementation-Title: youtube
+Implementation-Version: 1.0-SNAPSHOT
+Implementation-Vendor-Id: com.example
+Main-Class: com.example.youtube.Application
+
